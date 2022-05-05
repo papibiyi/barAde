@@ -53,7 +53,7 @@ class HomeViewModel {
         }.store(in: &cancellable)
     }
     
-    private func generateRandomTickers(from data: [Ticker]) -> [Ticker] {
+    func generateRandomTickers(from data: [Ticker]) -> [Ticker] {
         var temp: [Ticker] = []
         let tickers = data.shuffled()
         tickers.forEach { ticker in
