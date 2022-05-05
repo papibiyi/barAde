@@ -49,7 +49,9 @@ class HomeViewModel {
     @objc private func getTickers() {
         service.getTickers().sink { _ in } receiveValue: {[weak self] data in
             guard let self = self else {return}
-            self.tickers = self.generateRandomTickers(from: CSVDataToTIckerTransformer.transformCSV(data: data))
+            DispatchQueue.global(qos: .background).async {
+                self.tickers = self.generateRandomTickers(from: CSVDataToTIckerTransformer.transformCSV(data: data))
+            }
         }.store(in: &cancellable)
     }
     
