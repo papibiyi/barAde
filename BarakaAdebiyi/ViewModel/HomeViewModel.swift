@@ -45,3 +45,11 @@ class HomeViewModel {
         }.store(in: &cancellable)
     }
 }
+
+extension HomeViewModel {
+    enum Section: CaseIterable {
+        case tickers
+        case newsImage
+        case newsDetailed
+    }
+}
