@@ -24,6 +24,7 @@
 		50DDCC4928234BB100B365D5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDCC4828234BB100B365D5 /* APIService.swift */; };
 		50DDCC4D28234E2200B365D5 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDCC4C28234E2200B365D5 /* URLConstants.swift */; };
 		50DDCC5028234E9000B365D5 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDCC4F28234E9000B365D5 /* ImageCacheManager.swift */; };
+		50DDCC5228234EE700B365D5 /* CSVDataToTIckerTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDCC5128234EE700B365D5 /* CSVDataToTIckerTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		50DDCC4828234BB100B365D5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		50DDCC4C28234E2200B365D5 /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		50DDCC4F28234E9000B365D5 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		50DDCC5128234EE700B365D5 /* CSVDataToTIckerTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDataToTIckerTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				50DDCC4F28234E9000B365D5 /* ImageCacheManager.swift */,
+				50DDCC5128234EE700B365D5 /* CSVDataToTIckerTransformer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				50DDCC0928234A5A00B365D5 /* SceneDelegate.swift in Sources */,
 				50DDCC4928234BB100B365D5 /* APIService.swift in Sources */,
 				50DDCC5028234E9000B365D5 /* ImageCacheManager.swift in Sources */,
+				50DDCC5228234EE700B365D5 /* CSVDataToTIckerTransformer.swift in Sources */,
 				50DDCC3C28234AC600B365D5 /* NewsDetailedCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
