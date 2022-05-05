@@ -11,9 +11,10 @@ import Combine
 
 class HomeViewModel {
     
-    let service: API
+    private let service: API
     
-    var timer: Timer?
+    private var timer: Timer?
+    
     var cancellable = [AnyCancellable]()
     
     @Published var news = [News]()
@@ -33,16 +34,36 @@ class HomeViewModel {
         return news.suffix(resolvedSuffix).map({$0})
     }
     
+
+    func startFetchStream() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getTickers), userInfo: nil, repeats: true)
+    }
+
+    
     func getNews() {
         service.getNews().sink { _ in } receiveValue: {[weak self] news in
             self?.news = news ?? []
         }.store(in: &cancellable)
     }
     
-    @objc func getTickers() {
+    @objc private func getTickers() {
         service.getTickers().sink { _ in } receiveValue: {[weak self] data in
-            self?.tickers = CSVDataToTIckerTransformer.transformCSV(data: data)
+            guard let self = self else {return}
+            self.tickers = self.generateRandomTickers(from: CSVDataToTIckerTransformer.transformCSV(data: data))
         }.store(in: &cancellable)
+    }
+    
+    private func generateRandomTickers(from data: [Ticker]) -> [Ticker] {
+        var temp: [Ticker] = []
+        let tickers = data.shuffled()
+        tickers.forEach { ticker in
+            if let index = temp.firstIndex(where: {$0.symbol == ticker.symbol}) {
+                temp[index] = ticker
+            }else {
+                temp.append(ticker)
+            }
+        }
+        return temp
     }
 }
 

@@ -31,14 +31,14 @@ class ViewController: UIViewController {
             }
         }.store(in: &viewModel.cancellable)
         
-        viewModel.$tickers.sink { en in
+        viewModel.$tickers.sink { _ in
             DispatchQueue.main.async {
                 self.collectionView.reloadSections(IndexSet(integer: 0))
             }
         }.store(in: &viewModel.cancellable)
         
         viewModel.getNews()
-        viewModel.getTickers()
+        viewModel.startFetchStream()
     }
     
     override func loadView() {
